@@ -1,0 +1,18 @@
+CREATE DATABASE autores;
+USE autores;
+
+CREATE TABLE autores (
+  cedula   VARCHAR(20) PRIMARY KEY,
+  nombre   VARCHAR(100),
+  apellido VARCHAR(100),
+  pais     VARCHAR(50)
+);
+
+CREATE TABLE libros (
+  id       INT AUTO_INCREMENT PRIMARY KEY,
+  titulo   VARCHAR(150),
+  genero   VARCHAR(50),
+  anio     INT,
+  autor_id VARCHAR(20),
+  FOREIGN KEY (autor_id) REFERENCES autores(cedula)
+);
